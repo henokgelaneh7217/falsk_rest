@@ -45,3 +45,19 @@ class categoryDto:
         'categoryName' : fields.String(required=True, description='The cataegory Name')
     })
 
+class BorrowDto:
+    api = Namespace('borrower', description = 'borrower related operation')
+    borrower = api.model('borrower',{
+        'dateofBorrow': fields.String(required=True, description='the date of the borrowed'),
+        'BorrowedTo': fields.String(required=True, description='the date to it is going to be returned'),
+        'actualReturnDate':fields.String(required=True, descritption='the date it actually got returned')
+    })
+class StaffDto:
+    api = Namespace('staff', descritpion='staff related operation')
+    staff = api.model('staff',{
+        'privateId': fields.String(required=True, description='id of staff'),
+        'staffId':fields.String(required=True, description='staff id'),
+        'staffName':fields.StaffDto(required=True, description='name of the staff'),
+        'registered_on':fields.StaffDto(required=True, description='registered date'),
+        'hashPassword': fields.StaffDto(required=True,description='hashing the password')
+    })
