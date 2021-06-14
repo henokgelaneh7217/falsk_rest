@@ -30,3 +30,18 @@ class AuthDto:
         'email': fields.String(required=True, description='The email address'),
         'password': fields.String(required=True, description='The user password '),
     })
+    
+class AuthorDto:
+    api = Namespace('author', description='author related operations')
+    author = api.model('author', {
+        'authorId' : fields.String(required=True, description='The Authors ID'),
+        'authorName' : fields.String(required=True, description='The Authors Name')
+    })
+
+class categoryDto:
+    api = Namespace('category', description='category related operations')
+    author = api.model('cataegory', {
+        'categoryId' : fields.String(required=True, description='The cataegory ID'),
+        'categoryName' : fields.String(required=True, description='The cataegory Name')
+    })
+
